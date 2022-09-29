@@ -3,4 +3,5 @@
 <h3>in this project we're handling data send by API</h3>
 
 <h4>Our first API is getting posts in the home page</h4>
-<img src='public/home.png'>
+<img src="public/home.png" width="200px">
+
