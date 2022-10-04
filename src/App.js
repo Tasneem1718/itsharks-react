@@ -13,8 +13,8 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home/>} />
           <Route path='/home' element={<Home/>} />
-          <Route path='/single/:id/:name' element={<Single/>} />
-          <Route path='/category/:name' element={<Category/>} />
+          <Route path='/:name/:id' element={<Single/>} />
+          <Route path='/:name' element={<Category/>} />
           <Route path='*' element={<Error404/>} />
         </Routes>
         <Footer/>

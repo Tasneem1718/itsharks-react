@@ -24,10 +24,11 @@ function Nav() {
                             <p className="navLinnks curs">Category</p>
                             <ul className="scrooll">
                             {
+                                //[---- MAPing category database ----]
                                 cat.map(i=>{
                                     return(
                                         <li  key={i.id}>
-                                        <Link to={'/category/'+i.name} className="navLinnks ">{i.name}</Link>
+                                        <Link to={'/'+i.name} className="navLinnks ">{i.name}</Link>
                                         </li>
                                     )
                                     })
@@ -55,7 +56,7 @@ function Nav() {
                     </span>
                 </div>      
             </div>
-            <Link to="#" className="logo">IT SHARKS 24</Link>
+            <Link to="/home" className="logo">Francoise - Home list</Link>
         </header>
         <div class="searchPopup">
             <span class="closeBtn"></span>

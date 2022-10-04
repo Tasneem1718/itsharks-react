@@ -50,7 +50,7 @@ function Footer() {
         </div>
         <div className="wrapper">
           
-          <p className="copyright">© 2022 IT Sharks 24</p>
+          <p className="copyright">Made With <i className="fa fa-heart footercign"></i> by Tasneem Saad</p>
         </div>	
         </footer>
     )

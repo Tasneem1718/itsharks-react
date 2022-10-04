@@ -5,19 +5,21 @@ function Home() {
     const [posts, setposts] = useState([])
     const [recent, setrecent] = useState([])
     useEffect(()=>{
+        //[---- fetching getposts API ----]
         fetch('https://webeetec.com/itsharks24/blog/api/getposts.php')
             .then(res => res.json())
             .then(data => {
                 setposts(data)
             })
-    },[])
-    useEffect(()=>{
+        
+        //[---- fetching getrecentpost API ----]
         fetch('https://webeetec.com/itsharks24/blog/api/getrecentpost.php')
             .then(res => res.json())
             .then(data => {
                 setrecent(data)
             })
     },[])
+
     return(
     
     <section className="container mt-5">
@@ -28,15 +30,16 @@ function Home() {
 
             <div className="blogPostListWrap">
                 {
+                    //[---- MAPing posts database ----]
                     posts.map(i =>{
                         return(
                         <div className="blogPostListItem clear" key={i.id}>
-                            <Link to ={'/single/'+i.id+'/'+i.category} className="blogPostListImg">
+                            <Link to ={'/'+i.category+'/'+i.id} className="blogPostListImg">
                             <img src={'https://webeetec.com/itsharks24/blog/admin/'+i.image} alt="Francoise img" />
                             </Link>
                             <div className="blogPostListText">
                             <div className="blogPostListTime">{i.date}</div>
-                            <h3><Link to ={'/single/'+i.id+'/'+i.category} >{i.title}</Link></h3>
+                            <h3><Link to ={'/'+i.category+'/'+i.id} >{i.title}</Link></h3>
                             <p>{i.description}</p>
                             </div>
                         </div>
@@ -83,14 +86,15 @@ function Home() {
             <h3>Recent post</h3>
             <div className="popularPostsWidget">
                 {
+                    //[---- MAPing recentposts database ----]
                     recent.map( i => {
                         return(
 
                             <div className="popularPostsWidgetItem" key={i.id}>
-                                <Link to="#" className="popularPostsItemImg">
+                                <Link to ={'/'+i.category+'/'+i.id} className="popularPostsItemImg">
                                     <img src={'https://webeetec.com/itsharks24/blog/admin/'+i.image} alt="Francoise img"/></Link>
                                 <time datetime="2015-05-15">{i.date}</time>
-                                <h4><Link to="#">{i.title}</Link></h4>
+                                <h4><Link to ={'/'+i.category+'/'+i.id}>{i.title}</Link></h4>
                             </div>
                         )
                     })
